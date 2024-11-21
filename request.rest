@@ -1,0 +1,92 @@
+### Реєстрація нового користувача
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@example11.com",
+  "password": "password1234"
+}
+
+### Логін користувача
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example11.com",
+  "password": "password1234"
+}
+
+
+### Змина пороля
+POST http://localhost:3000/auth/change-password
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+
+{
+  "oldPassword": "password1234",
+  "newPassword": "password"
+}
+
+
+
+
+### Создание объявления (POST)
+POST http://localhost:3000/ads
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+
+
+{
+  "title": "Продам велосипед2",
+  "description": "В хорошем состоянии, почти новый",
+  "category": "Техника",
+  "price": 5000,
+  "location": "Киев"
+}
+
+
+
+
+### Поиск объявлений (GET)
+GET http://localhost:3000/ads/search?query=велосипед
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+
+
+
+### Редактирование объявления (PUT)
+PUT http://localhost:3000/ads/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+
+{
+  "title": "Продам новый велосипед",
+  "price": 6000
+}
+
+### Удаление объявления (DELETE)
+DELETE http://localhost:3000/ads/<id>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+
+
+### Вывести все объявления
+GET http://localhost:3000/ads
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+
+### Смена статуса на продано
+PUT http://localhost:3000/ads/sold/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+
+### Отправка сообщения другому юзеру
+POST http://localhost:3000/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
+Content-Type: application/json
+
+{
+  "receiverId": 2,
+  "message": "Привет, как дела?"
+}
+
+### История всех сообщений
+GET http://localhost:3000/messages
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTczMjE4NTA5MywiZXhwIjoxNzMyMTg4NjkzfQ.x0zit02YIUKfgRfZYEZNQg6ndKC7fdJQVYQklmqAXPE
